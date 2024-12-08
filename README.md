@@ -24,6 +24,7 @@
 
 ## Credits
 - ocornut | ImGui https://github.com/ocornut/imgui
+- justqstn | BNM-IL2CPP https://github.com/justqstn/JQ-BNM/tree/main
 
 ## Misc
 For further help, join my Discord: https://discord.gg/XSG3KGUstz
