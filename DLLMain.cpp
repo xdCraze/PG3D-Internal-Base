@@ -1,11 +1,6 @@
-#include "Utils/Utils.h"
-#include "Utils/Backend/Backend.h"
-#include "Utils/Hooks/Hooks.h"
-#include <iostream>
-#include <intrin.h>
-#include "Utils/BNM-IL2CPP/BNM.hpp"
-#include <cstdint>
-#include <string>
+#include "Cheat/Utils/Utils.h"
+#include "Cheat/Backend/Backend.h"
+#include "Cheat/Game/Hooks.h"
 
 #define QWORD int64_t
 
@@ -13,24 +8,33 @@
 
 QWORD WINAPI MainThread(LPVOID param)
 {
-	IL2CPP::Initialize();
-	RunBackend.Load(); // Load everything
 	AllocConsole();
 	FILE* fp;
 	freopen_s(&fp, "CONOUT$", "w", stdout);;
 	SetConsoleTitleA("PG3D Internal");
 	const HANDLE console = GetStdHandle(STD_OUTPUT_HANDLE);
 
+	IL2CPP::Initialize();
+	RunBackend.Load(); // Load everything
+
 	Hooks();
-	printf("Press Right Control to open the menu.\n");
+	printf("Press Insert to open the menu.\n");
+	
+	// Log tests
+	/*
+	Logger::Log("This is an info message.", Logger::LogLevel::INFO);
+	Logger::Log("This is a warning message.", Logger::LogLevel::WARNING);
+	Logger::Log("This is an error message. {}", Logger::LogLevel::ERRORR, "fiken!!!");
+	Logger::Log("This is a success message.", Logger::LogLevel::SUCCESS);
+	*/
 
 	while (true)
 	{
-		std::this_thread::sleep_for(std::chrono::milliseconds(420)); // No cpu frying in my city
+		std::this_thread::sleep_for(std::chrono::milliseconds(420));
 		if (Utils::keyPressed(UNINJECT_KEY)) break; // Uninject
 	}
 	
-	RunBackend.Unload(); // Unload everything
+	RunBackend.Unload();
 	return 0;
 }
 

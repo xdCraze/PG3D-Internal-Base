@@ -86,8 +86,8 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
     <LibraryPath>$(LibraryPath)</LibraryPath>
-    <OutDir>$(SolutionDir)\Build\$(Platform)</OutDir>
-    <IntDir>$(SolutionDir)\Intermediate\$(Platform)</IntDir>
+    <OutDir>$(SolutionDir)Build\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>.\Build\Intermediate</IntDir>
   </PropertyGroup>
   <PropertyGroup Label="Vcpkg">
     <VcpkgEnabled>true</VcpkgEnabled>
@@ -154,41 +154,60 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Utils\Backend\Backend.cpp" />
-    <ClCompile Include="Utils\ImGui\imgui.cpp" />
-    <ClCompile Include="Utils\ImGui\imgui_demo.cpp" />
-    <ClCompile Include="Utils\ImGui\imgui_draw.cpp" />
-    <ClCompile Include="Utils\ImGui\imgui_impl_dx11.cpp" />
-    <ClCompile Include="Utils\ImGui\imgui_impl_win32.cpp" />
-    <ClCompile Include="Utils\ImGui\imgui_tables.cpp" />
-    <ClCompile Include="Utils\ImGui\imgui_widgets.cpp" />
+    <ClCompile Include="Cheat\Backend\Backend.cpp" />
+    <ClCompile Include="Cheat\Utils\ImGui\imgui.cpp" />
+    <ClCompile Include="Cheat\Utils\ImGui\imgui_demo.cpp" />
+    <ClCompile Include="Cheat\Utils\ImGui\imgui_draw.cpp" />
+    <ClCompile Include="Cheat\Utils\ImGui\imgui_impl_dx11.cpp" />
+    <ClCompile Include="Cheat\Utils\ImGui\imgui_impl_win32.cpp" />
+    <ClCompile Include="Cheat\Utils\ImGui\imgui_tables.cpp" />
+    <ClCompile Include="Cheat\Utils\ImGui\imgui_widgets.cpp" />
     <ClCompile Include="DLLMain.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Utils\Backend\Backend.h" />
-    <ClInclude Include="Utils\BNM-IL2CPP\BNM.hpp" />
-    <ClInclude Include="Utils\BNM-IL2CPP\Defines.hpp" />
-    <ClInclude Include="Utils\BNM-IL2CPP\ExportCall.hpp" />
-    <ClInclude Include="Utils\BNM-IL2CPP\Exports.hpp" />
-    <ClInclude Include="Utils\BNM-IL2CPP\Offsets.hpp" />
-    <ClInclude Include="Utils\BNM-IL2CPP\Structures\IL2CPP\Array.hpp" />
-    <ClInclude Include="Utils\BNM-IL2CPP\Structures\IL2CPP\Assembly.hpp" />
-    <ClInclude Include="Utils\BNM-IL2CPP\Structures\IL2CPP\Class.hpp" />
-    <ClInclude Include="Utils\BNM-IL2CPP\Structures\IL2CPP\Domain.hpp" />
-    <ClInclude Include="Utils\BNM-IL2CPP\Structures\IL2CPP\Field.hpp" />
-    <ClInclude Include="Utils\BNM-IL2CPP\Structures\IL2CPP\Image.hpp" />
-    <ClInclude Include="Utils\BNM-IL2CPP\Structures\IL2CPP\Method.hpp" />
-    <ClInclude Include="Utils\BNM-IL2CPP\Structures\IL2CPP\String.hpp" />
-    <ClInclude Include="Utils\Hooks\Hooks.h" />
-    <ClInclude Include="Utils\ImGui\imconfig.h" />
-    <ClInclude Include="Utils\ImGui\imgui.h" />
-    <ClInclude Include="Utils\ImGui\imgui_impl_dx11.h" />
-    <ClInclude Include="Utils\ImGui\imgui_impl_win32.h" />
-    <ClInclude Include="Utils\ImGui\imgui_internal.h" />
-    <ClInclude Include="Utils\ImGui\imstb_rectpack.h" />
-    <ClInclude Include="Utils\ImGui\imstb_textedit.h" />
-    <ClInclude Include="Utils\ImGui\imstb_truetype.h" />
-    <ClInclude Include="Utils\Utils.h" />
+    <ClInclude Include="Cheat\Backend\Backend.h" />
+    <ClInclude Include="Cheat\Game\BNM-IL2CPP\BNM.hpp" />
+    <ClInclude Include="Cheat\Game\BNM-IL2CPP\Defines.hpp" />
+    <ClInclude Include="Cheat\Game\BNM-IL2CPP\ExportCall.hpp" />
+    <ClInclude Include="Cheat\Game\BNM-IL2CPP\Exports.hpp" />
+    <ClInclude Include="Cheat\Game\BNM-IL2CPP\Offsets.hpp" />
+    <ClInclude Include="Cheat\Game\BNM-IL2CPP\Structures\IL2CPP\Array.hpp" />
+    <ClInclude Include="Cheat\Game\BNM-IL2CPP\Structures\IL2CPP\Assembly.hpp" />
+    <ClInclude Include="Cheat\Game\BNM-IL2CPP\Structures\IL2CPP\Class.hpp" />
+    <ClInclude Include="Cheat\Game\BNM-IL2CPP\Structures\IL2CPP\Domain.hpp" />
+    <ClInclude Include="Cheat\Game\BNM-IL2CPP\Structures\IL2CPP\Field.hpp" />
+    <ClInclude Include="Cheat\Game\BNM-IL2CPP\Structures\IL2CPP\Image.hpp" />
+    <ClInclude Include="Cheat\Game\BNM-IL2CPP\Structures\IL2CPP\Method.hpp" />
+    <ClInclude Include="Cheat\Game\BNM-IL2CPP\Structures\IL2CPP\String.hpp" />
+    <ClInclude Include="Cheat\Game\BNM\BNM.hpp" />
+    <ClInclude Include="Cheat\Game\BNM\Defines.hpp" />
+    <ClInclude Include="Cheat\Game\BNM\ExportCall.hpp" />
+    <ClInclude Include="Cheat\Game\BNM\Exports.hpp" />
+    <ClInclude Include="Cheat\Game\BNM\Offsets.hpp" />
+    <ClInclude Include="Cheat\Game\BNM\Structures\IL2CPP.hpp" />
+    <ClInclude Include="Cheat\Game\BNM\Structures\IL2CPP\Array.hpp" />
+    <ClInclude Include="Cheat\Game\BNM\Structures\IL2CPP\Assembly.hpp" />
+    <ClInclude Include="Cheat\Game\BNM\Structures\IL2CPP\Class.hpp" />
+    <ClInclude Include="Cheat\Game\BNM\Structures\IL2CPP\Domain.hpp" />
+    <ClInclude Include="Cheat\Game\BNM\Structures\IL2CPP\Field.hpp" />
+    <ClInclude Include="Cheat\Game\BNM\Structures\IL2CPP\Image.hpp" />
+    <ClInclude Include="Cheat\Game\BNM\Structures\IL2CPP\Method.hpp" />
+    <ClInclude Include="Cheat\Game\BNM\Structures\IL2CPP\String.hpp" />
+    <ClInclude Include="Cheat\Game\BNM\Structures\UnityEngine.hpp" />
+    <ClInclude Include="Cheat\Game\BNM\Utils\Dumper.hpp" />
+    <ClInclude Include="Cheat\Game\BNM\Utils\Other.hpp" />
+    <ClInclude Include="Cheat\Game\Hooks.h" />
+    <ClInclude Include="Cheat\Game\IL2CPP-Helper.h" />
+    <ClInclude Include="Cheat\Utils\ImGui\imconfig.h" />
+    <ClInclude Include="Cheat\Utils\ImGui\imgui.h" />
+    <ClInclude Include="Cheat\Utils\ImGui\imgui_impl_dx11.h" />
+    <ClInclude Include="Cheat\Utils\ImGui\imgui_impl_win32.h" />
+    <ClInclude Include="Cheat\Utils\ImGui\imgui_internal.h" />
+    <ClInclude Include="Cheat\Utils\ImGui\imstb_rectpack.h" />
+    <ClInclude Include="Cheat\Utils\ImGui\imstb_textedit.h" />
+    <ClInclude Include="Cheat\Utils\ImGui\imstb_truetype.h" />
+    <ClInclude Include="Cheat\Utils\Logger.h" />
+    <ClInclude Include="Cheat\Utils\Utils.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
